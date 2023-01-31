@@ -1,16 +1,16 @@
 import { integer } from "../util/types";
 
 export type SpecificClearTypes = "clearCircle" | "clearDiamond" | "clearStar" | "fullComboCircle" | "fullComboDiamond" | "fullComboStar" | "perfect" | "easyClear" | "failedCircle";
-const scoreInfl = 2.3;
+const scoreInfl = 1.5;
 
 const clearTypeCoefficients: Record<SpecificClearTypes, number> = {
     clearCircle: 1,
-    clearDiamond: 1.02,
-    clearStar: 1.04,
-    fullComboCircle: 1.05,
-    fullComboDiamond: 1.06,
-    fullComboStar: 1.08,
-    perfect: 1.1,
+    clearDiamond: 1,
+    clearStar: 1,
+    fullComboCircle: 1.015,
+    fullComboDiamond: 1.015,
+    fullComboStar: 1.015,
+    perfect: 1.03,
     easyClear: 0.8,
     failedCircle: 0.5
 }
@@ -40,23 +40,23 @@ export function calculate(score: integer, specificClearType: SpecificClearTypes,
  */
 function getGradeMultiplier(score: integer) {
     if(score < 50000) {
-        return 0.89;
+        return 0.94;
     } else if(score < 62000) {
-        return 0.92;
+        return 0.96;
     } else if(score < 72000) {
-        return 0.95;
+        return 0.975;
     } else if(score < 82000) {
-        return 0.98;
+        return 0.99;
     } else if(score < 90000) {
         return 1;
     } else if(score < 95000) {
-        return 1.02;
+        return 1.01;
     } else if(score < 98000) {
-        return 1.04;
+        return 1.02;
     } else if(score < 100000) {
-        return 1.06
+        return 1.03
     } else {
-        return 1.09;
+        return 1.04;
     }
 }
 
