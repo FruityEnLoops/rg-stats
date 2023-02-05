@@ -17,7 +17,7 @@ const clearTypeCoefficients: Record<SpecificClearTypes, number> = {
 
 const expectedMaxRating = 150;
 const nonInflatedMaxRating = 50 * clearTypeCoefficients["perfect"] * getGradeMultiplier(100000); 
-const magicNumber = expectedMaxRating / nonInflatedMaxRating / (Math.pow(100000, scoreInfl) / Math.pow(10000000, scoreInfl));
+const magicNumber = expectedMaxRating / nonInflatedMaxRating / (Math.pow(100000, scoreInfl) / Math.pow(100000, scoreInfl));
 // adjusts the rating for a 100000 on a 50 to expectedMaxRating
 
 /**
@@ -71,6 +71,6 @@ function getGradeMultiplier(score: integer) {
  * but the upper bound is not enforced here.
  */
 export function inverse(classForce: number, specificClearType: SpecificClearTypes, level: integer) {
-    // return Math.pow(classForce * Math.pow(10000000, scoreInfl) / (level * getGradeMultiplier(score) * clearTypeCoefficients[specificClearType] * magicNumber), 1/scoreInfl);
+    // return Math.pow(classForce * Math.pow(100000, scoreInfl) / (level * getGradeMultiplier(score) * clearTypeCoefficients[specificClearType] * magicNumber), 1/scoreInfl);
     return 0;
 }
