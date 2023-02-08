@@ -2,7 +2,7 @@ import t from "tap";
 import { isAprx } from "../test-utils/approx";
 import { TestCase } from "../test-utils/test-case";
 import { ThrowsToSnapshot } from "../test-utils/throw-snapshot";
-import { calculate, inverse, SpecificClearTypes } from "./classforce";
+import { calculate, inverse, SpecificClearTypes } from "./popn-classforce";
 
 t.test("classForce Tests", (t) => {
 	function MakeTestCase(
@@ -20,11 +20,19 @@ t.test("classForce Tests", (t) => {
 			);
 	}
 
-    // TODO
-
 	const testCases = [
+		MakeTestCase(100_000, "perfect", 50, 150.00),
+		MakeTestCase(91_154, "clearCircle", 49, 120.623),
+		MakeTestCase(91_154, "easyClear", 49, 96.498),
+		MakeTestCase(91_112, "fullComboCircle", 49, 122.348),
+		MakeTestCase(91_107, "failedCircle", 49, 60.265),
+		MakeTestCase(88_978, "clearCircle", 49, 115.178),
+		MakeTestCase(90_454, "failedCircle", 49, 59.618),
+		MakeTestCase(88_261, "clearCircle", 48, 111.466),
 		MakeTestCase(0, "clearCircle", 48, 0),
-		MakeTestCase(100000, "perfect", 50, 150.00),
+		MakeTestCase(99_952, "perfect", 1, 2.969),
+		MakeTestCase(99_989, "perfect", 50, 148.533),
+		MakeTestCase(99_989, "fullComboCircle", 50, 146.370)
 	];
 
 	for (const testCase of testCases) {
@@ -33,7 +41,7 @@ t.test("classForce Tests", (t) => {
 
 	t.end();
 });
-/*
+
 t.test("classForce Validation Tests", (t) => {
 	ThrowsToSnapshot(
 		t,
@@ -69,17 +77,18 @@ t.test("Inverse classForce Tests", (t) => {
 	}
 
 	const testCases = [
-		MakeTestCase(91_154, "clearCircle", 49, 98.19),
-		MakeTestCase(91_154, "easyClear", 49, 98.19),
-		MakeTestCase(91_112, "fullComboCircle", 49, 98.55),
-		MakeTestCase(91_107, "failedCircle", 49, 97.63),
-		MakeTestCase(88_978, "clearCircle", 49, 97.79),
-		MakeTestCase(90_454, "failedCircle", 49, 97.51),
-		MakeTestCase(88_261, "clearCircle", 48, 95.82),
+		MakeTestCase(100_000, "perfect", 50, 150.00),
+		MakeTestCase(91_154, "clearCircle", 49, 120.623),
+		MakeTestCase(91_154, "easyClear", 49, 96.498),
+		MakeTestCase(91_112, "fullComboCircle", 49, 122.348),
+		MakeTestCase(91_107, "failedCircle", 49, 60.265),
+		MakeTestCase(88_978, "clearCircle", 49, 115.178),
+		MakeTestCase(90_454, "failedCircle", 49, 59.618),
+		MakeTestCase(88_261, "clearCircle", 48, 111.466),
 		MakeTestCase(0, "clearCircle", 48, 0),
-		MakeTestCase(99_954, "perfect", 1, 11.94),
-		MakeTestCase(99_989, "perfect", 50, 102.02),
-		MakeTestCase(99_989, "fullComboCircle", 50, 102.02),
+		MakeTestCase(99_952, "perfect", 1, 2.969),
+		MakeTestCase(99_989, "perfect", 50, 148.533),
+		MakeTestCase(99_989, "fullComboCircle", 50, 146.370)
 	];
 
 	for (const testCase of testCases) {
@@ -100,4 +109,3 @@ t.test("Inverse classForce Validation Tests", (t) => {
 
 	t.end();
 });
-*/
