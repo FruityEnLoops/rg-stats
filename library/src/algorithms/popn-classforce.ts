@@ -43,6 +43,8 @@ const magicNumber = expectedMaxRating / nonInflatedMaxRating / (Math.pow(100000,
  * @param specificClearType - The clear type for this score.
  * @param level - The level for this chart. Typically between 1 and 50,
  * but the upper bound is not enforced here.
+ * 
+ * @returns A number between 0 and 150, unless the level specified is above 50.
  */
 export function calculate(score: integer, specificClearType: SpecificClearTypes, level: integer) {
 	ThrowIf.negative(score, "Score cannot be negative.", { score });
@@ -118,6 +120,8 @@ function popnGetGradeBoundaries(grade: popnGrades): { lower: integer; upper: int
  * to achieve a given classForce value.
  * @param level - The level for the chart. Typically between 1 and 50,
  * but the upper bound is not enforced here.
+ * 
+ * @returns A number between 0 and 100,000.
  */
 export function inverse(classForce: number, specificClearType: SpecificClearTypes, level: integer) {
     ThrowIf.negative(level, "Chart level cannot be negative.", { level });
@@ -141,10 +145,10 @@ export function inverse(classForce: number, specificClearType: SpecificClearType
  * This means we try dividing by all the gradeCoefficients until we find one
  * where the resulting score would have the same grade as the given coefficient.
  *
- * Used for inverting VF.
+ * Used for inverting ClassForce.
  *
  * @param scoreTimesGradeCoef - The expected score multiplied by the gradeCoefficient.
- * @param coefficients - A record of SDVXGrade -> gradeCoefficient
+ * @param coefficients - A record of popnGrades -> gradeCoefficient
  * @returns The score divided by the gradeCoefficient. If not possible, this returns -1.
  */
 function AttemptGradeCoefficientDivide(
