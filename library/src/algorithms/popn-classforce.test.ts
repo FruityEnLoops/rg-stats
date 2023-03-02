@@ -23,6 +23,8 @@ t.test("classForce Tests", (t) => {
 	const testCases = [
 		MakeTestCase(100_000, "perfect", 50, 150.00),
 		MakeTestCase(91_154, "clearCircle", 49, 120.623),
+		MakeTestCase(95_154, "clearCircle", 49, 129.923),
+		MakeTestCase(95_154, "fullComboCircle", 49, 131.872),
 		MakeTestCase(91_154, "easyClear", 49, 96.498),
 		MakeTestCase(91_112, "fullComboCircle", 49, 122.348),
 		MakeTestCase(91_107, "failedCircle", 49, 60.265),
@@ -32,7 +34,16 @@ t.test("classForce Tests", (t) => {
 		MakeTestCase(0, "clearCircle", 48, 0),
 		MakeTestCase(99_952, "perfect", 1, 2.969),
 		MakeTestCase(99_989, "perfect", 50, 148.533),
-		MakeTestCase(99_989, "fullComboCircle", 50, 146.370)
+		MakeTestCase(99_989, "fullComboCircle", 50, 146.370),
+
+		MakeTestCase(49_998, "failedCircle", 48, 22.337),
+		MakeTestCase(59_999, "failedCircle", 48, 29.988),
+		MakeTestCase(69_998, "failedCircle", 48, 38.379),
+		MakeTestCase(79_998, "failedCircle", 48, 47.612),
+		MakeTestCase(49_998, "clearCircle", 48, 44.674),
+		MakeTestCase(59_999, "clearCircle", 48, 59.976),
+		MakeTestCase(69_998, "clearCircle", 48, 76.759),
+		MakeTestCase(79_999, "clearCircle", 48, 95.225),
 	];
 
 	for (const testCase of testCases) {
@@ -79,6 +90,8 @@ t.test("Inverse classForce Tests", (t) => {
 	const testCases = [
 		MakeTestCase(100_000, "perfect", 50, 150.00),
 		MakeTestCase(91_154, "clearCircle", 49, 120.623),
+		MakeTestCase(95_154, "clearCircle", 49, 129.923),
+		MakeTestCase(95_154, "fullComboCircle", 49, 131.872),
 		MakeTestCase(91_154, "easyClear", 49, 96.498),
 		MakeTestCase(91_112, "fullComboCircle", 49, 122.348),
 		MakeTestCase(91_107, "failedCircle", 49, 60.265),
@@ -88,7 +101,16 @@ t.test("Inverse classForce Tests", (t) => {
 		MakeTestCase(0, "clearCircle", 48, 0),
 		MakeTestCase(99_952, "perfect", 1, 2.969),
 		MakeTestCase(99_989, "perfect", 50, 148.533),
-		MakeTestCase(99_989, "fullComboCircle", 50, 146.370)
+		MakeTestCase(99_989, "fullComboCircle", 50, 146.370),
+
+		MakeTestCase(49_998, "failedCircle", 48, 22.337),
+		MakeTestCase(59_999, "failedCircle", 48, 29.988),
+		MakeTestCase(69_998, "failedCircle", 48, 38.379),
+		MakeTestCase(79_998, "failedCircle", 48, 47.612),
+		MakeTestCase(49_998, "clearCircle", 48, 44.674),
+		MakeTestCase(59_999, "clearCircle", 48, 59.976),
+		MakeTestCase(69_998, "clearCircle", 48, 76.759),
+		MakeTestCase(79_999, "clearCircle", 48, 95.225),
 	];
 
 	for (const testCase of testCases) {
