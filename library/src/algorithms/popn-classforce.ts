@@ -161,7 +161,7 @@ function AttemptGradeCoefficientDivide(
 
 		if (maybeScore <= lower) {
 			return lower;
-		} else if (maybeScore < upper || (maybeScore === upper && upper === 100_000)) {
+		} else if (maybeScore < upper || (maybeScore === 100_000)) {
 			return Math.round(maybeScore);
 		}
 	}
